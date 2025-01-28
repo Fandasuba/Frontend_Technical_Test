@@ -1,4 +1,4 @@
-// Added a new file here for a placeholder. Didn't want to commit my API key thinking ti was already ignored from an earlier push.
+// Added a new file here for a placeholder. Didn't want to commit my API key thinking it was already ignored from an earlier push.
 
 'use strict';
 module.exports = function (environment) {
