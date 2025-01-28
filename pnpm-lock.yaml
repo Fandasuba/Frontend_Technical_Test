@@ -127,7 +127,7 @@ importers:
         specifier: ^8.1.1
         version: 8.1.2(eslint@8.57.1)
       firebase:
-        specifier: ^9.0.1
+        specifier: ^9.23.0
         version: 9.23.0
       loader.js:
         specifier: ^4.7.0

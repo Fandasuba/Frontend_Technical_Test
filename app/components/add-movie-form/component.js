@@ -18,6 +18,10 @@ export default class AddMovieForm extends Component {
   @action
   async addMovie(event) {
     event.preventDefault();
+    console.log('Attempting to add movie:', {
+      title: this.title,
+      description: this.description,
+    });
 
     this.errorMessage = undefined;
 
@@ -25,12 +29,14 @@ export default class AddMovieForm extends Component {
       const { description, title } = this;
 
       await this.firebase.addMovie(title, description);
+      console.log('Successfully added movie to Firebase');
 
       this.description = undefined;
       this.title = undefined;
 
       this.args.loadMovies();
     } catch (error) {
+      console.log('Error adding move to the Firedatabase.', error);
       this.errorMessage = error?.message;
     }
   }

@@ -21,7 +21,14 @@ module.exports = function (environment) {
   };
 
   ENV.firebase = {
-    // add firebase config here
+    apiKey: 'AIzaSyCcScjcjOBdZQVeydvlWfUA8Xh_U0YzxjQ',
+    authDomain: 'clarus-movie-list.firebaseapp.com',
+    databaseURL:
+      'https://clarus-movie-list-default-rtdb.europe-west1.firebasedatabase.app',
+    projectId: 'clarus-movie-list',
+    storageBucket: 'clarus-movie-list.firebasestorage.app',
+    messagingSenderId: '753026870643',
+    appId: '1:753026870643:web:ff670cf0ef3ee770642906',
   };
 
   if (environment === 'test') {
