@@ -23,3 +23,6 @@
 
 # broccoli-debug
 /DEBUG/
+
+# firebase stuff
+/config/environment.js
