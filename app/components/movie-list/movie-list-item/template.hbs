@@ -1,10 +1,19 @@
 <li class={{this.styleNamespace}}>
-  <div class="details">
-    <h2>
-      {{this.movie.title}}
-    </h2>
-    <p>
-      {{this.movie.description}}
-    </p>
-  </div>
+  {{#if this.isEditing}}
+    <div class="edit-form">
+      <Input @type="text" @value={{this.editTitle}} />
+      <Textarea @value={{this.editDescription}} />
+      <button {{on "click" this.saveEdit}}>Save</button>
+      <button {{on "click" this.cancelEdit}}>Cancel</button>
+    </div>
+  {{else}}
+    <div class="details">
+      <h2>{{this.movie.title}}</h2>
+      <p>{{this.movie.description}}</p>
+      <div class="actions">
+        <button {{on "click" this.startEditing}}>Edit</button>
+        <button>Delete</button>
+      </div>
+    </div>
+  {{/if}}
 </li>

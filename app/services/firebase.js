@@ -1,4 +1,12 @@
-import { addDoc, collection, getFirestore, getDocs } from 'firebase/firestore'; //FIrebase syntax stuff for getting schemas, setting up server connection, then creating and retrieving documents from the server.
+import {
+  addDoc,
+  collection,
+  getFirestore,
+  getDocs,
+  updateDoc,
+  doc,
+  deleteDoc,
+} from 'firebase/firestore'; //FIrebase syntax stuff for getting schemas, setting up server connection, then creating and retrieving documents from the server.
 import config from 'ember-quickstart/config/environment';
 import Service from '@ember/service';
 
@@ -21,6 +29,25 @@ export default class FirebaseService extends Service {
     } catch (error) {
       console.error('Error fetching movies', error);
       return [];
+    }
+  }
+
+  // async deleteMovie(movieId) {
+  //   try {
+  //     const movieRef = doc(this.db, 'movies', movieId);
+  //     await deleteDoc(movieRef);
+  //   } catch (error) {
+  //     console.error("Can't delete movie:", error);
+  //   }
+  // }
+
+  async updateMovie(movieId, updates) {
+    console.log(movieId, updates);
+    try {
+      const movieRef2 = doc(this.db, 'movies', movieId);
+      await updateDoc(movieRef2, updates);
+    } catch (error) {
+      console.error('error updating film:', error);
     }
   }
 }

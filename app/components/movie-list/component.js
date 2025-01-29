@@ -25,4 +25,8 @@ export default class MovieList extends Component {
       console.error('Error loading movies:', error);
     }
   }
+  @action
+  async refreshMovies() {
+    await this.loadMovies();
+  }
 }
