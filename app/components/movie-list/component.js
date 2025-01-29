@@ -6,12 +6,15 @@ import { action } from '@ember/object';
 
 export default class MovieList extends Component {
   @service firebase;
+  @service movieListManager; // Added this because sending onRefresh as a prop to the the form was causing the form to duplicate. Service seemed like a good way of creating importing a util function.
   @tracked movies = [];
   styleNamespace = podNames['movie-list'];
+  @service router;
 
   constructor() {
     super(...arguments);
     this.loadMovies();
+    this.movieListManager.registerLoadMovies(() => this.loadMovies());
   }
 
   @action
@@ -24,9 +27,5 @@ export default class MovieList extends Component {
     } catch (error) {
       console.error('Error loading movies:', error);
     }
-  }
-  @action
-  async refreshMovies() {
-    await this.loadMovies();
   }
 }

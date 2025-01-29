@@ -32,14 +32,14 @@ export default class FirebaseService extends Service {
     }
   }
 
-  // async deleteMovie(movieId) {
-  //   try {
-  //     const movieRef = doc(this.db, 'movies', movieId);
-  //     await deleteDoc(movieRef);
-  //   } catch (error) {
-  //     console.error("Can't delete movie:", error);
-  //   }
-  // }
+  async deleteMovie(movieId) {
+    try {
+      const movieRef = doc(this.db, 'movies', movieId);
+      await deleteDoc(movieRef);
+    } catch (error) {
+      console.error("Can't delete movie:", error);
+    }
+  }
 
   async updateMovie(movieId, updates) {
     console.log(movieId, updates);

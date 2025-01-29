@@ -18,7 +18,10 @@
           class="edit-button"
           {{on "click" this.startEditing}}
         >Edit</button>
-        <button class="delete-button">Delete</button>
+        <button
+          class="delete-button"
+          {{on "click" this.deleteMovie}}
+        >Delete</button>
       </div>
     </div>
   {{/if}}
