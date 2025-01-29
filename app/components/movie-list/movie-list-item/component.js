@@ -37,19 +37,29 @@ export default class MovieListItem extends Component {
   }
   @action
   async saveEdit() {
+    console.log('saveEdit called');
+    console.log('Movie ID:', this.args.movie.id);
+    console.log('Edit Title:', this.editTitle);
+    console.log('Edit Description:', this.editDescription);
+    console.log('onRefresh prop:', this.args.onRefresh);
     try {
       await this.firebase.updateMovie(this.args.movie.id, {
         title: this.editTitle,
         description: this.editDescription,
       });
+
       this.isEditing = false;
-      this.args.onRefresh();
-      console.log(
-        this.args.onRefresh(),
-        'Logging the saveEdit action for the onRefresh.',
-      );
+
+      // Explicitly check if onRefresh is a function before calling
+      if (typeof this.args.onRefresh === 'function') {
+        await this.args.onRefresh();
+      } else {
+        console.warn('onRefresh is not a function', this.args.onRefresh);
+      }
     } catch (error) {
       console.error('Error updating movie:', error);
+      // Rethrow the error to ensure the test fails if something goes wrong
+      throw error;
     }
   }
 
