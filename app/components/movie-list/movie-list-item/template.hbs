@@ -1,38 +1,42 @@
-<li class={{this.styleNamespace}}>
-  {{#if this.isEditing}}
-    <div class="edit-form">
-      <Input @type="text" @value={{this.editTitle}} />
-      <Textarea @value={{this.editDescription}} />
-      <button class="save-button" {{on "click" this.saveEdit}}>Save</button>
-      <button
-        class="cancel-button"
-        {{on "click" this.cancelEdit}}
-      >Cancel</button>
-    </div>
-  {{else}}
-    <div class="details">
-      <h2>{{this.movie.title}}</h2>
-      <p>{{this.movie.description}}</p>
-      {{#if this.trailerUrl}}
-        <iframe
-          width="420"
-          height="315"
-          src={{this.embedUrl}}
-          frameborder="0"
-          allowfullscreen
-        >
-        </iframe>
-      {{/if}}
-      <div class="actions">
+<div class="movie-list-container">
+  <div class="noir-movie-header">
+    <h2 class="noir-movie-title">{{this.movie.title}}</h2>
+    <p class="noir-movie-desc">{{this.movie.description}}</p>
+  </div>
+  <li class={{this.styleNamespace}}>
+    {{! Rest of your existing template stays exactly the same }}
+    {{#if this.isEditing}}
+      <div class="edit-form">
+        <Input @type="text" @value={{this.editTitle}} />
+        <Textarea @value={{this.editDescription}} />
+        <button class="save-button" {{on "click" this.saveEdit}}>Save</button>
         <button
-          class="edit-button"
-          {{on "click" this.startEditing}}
-        >Edit</button>
-        <button
-          class="delete-button"
-          {{on "click" this.deleteMovie}}
-        >Delete</button>
+          class="cancel-button"
+          {{on "click" this.cancelEdit}}
+        >Cancel</button>
       </div>
-    </div>
-  {{/if}}
-</li>
+    {{else}}
+      <div class="details">
+        <div class="trailer-container">
+          {{#if this.trailerUrl}}
+            <iframe
+              src={{this.embedUrl}}
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          {{/if}}
+        </div>
+        <div class="actions">
+          <button
+            class="edit-button"
+            {{on "click" this.startEditing}}
+          >Edit</button>
+          <button
+            class="delete-button"
+            {{on "click" this.deleteMovie}}
+          >Delete</button>
+        </div>
+      </div>
+    {{/if}}
+  </li>
+</div>

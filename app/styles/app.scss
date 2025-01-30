@@ -1,1 +1,55 @@
-@import 'pod-styles';
+@import "pod-styles";
+
+.ember-application {
+  background-color: #1a1a1a;
+  position: relative;
+  min-height: 100vh;
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(40, 40, 40, 0.8) 0%,
+      rgba(0, 0, 0, 0.95) 100%
+    );
+  }
+
+  .ember-view {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ember-application {
+    &::before {
+      background: radial-gradient(
+        circle at center,
+        rgba(50, 50, 50, 0.9) 0%,
+        rgba(10, 10, 10, 0.98) 100%
+      );
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .ember-application {
+    background-color: #121212;
+  }
+
+  .ember-view {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ember-view {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

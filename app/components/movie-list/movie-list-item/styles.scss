@@ -1,19 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap");
+
 & {
-  .details > h2 {
-    color: #e91c50;
+  list-style-type: none;
+  margin-bottom: 5vh;
+  background-image: url("/theater-or-cinema-auditorium-screen-with-red-curtains-and-seats-vector-3529159996.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  .noir-movie-header {
+    padding: 2vh 3vw;
+    position: relative;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  :global(.noir-movie-title) {
+    font-family: "Playfair Display", serif !important;
+    color: white !important;
+    text-align: center !important;
+    margin: 0 0 1vh 0 !important;
+    font-weight: 900 !important;
+    letter-spacing: 2px !important;
+    font-size: 5vw !important;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  :global(.noir-movie-desc) {
+    font-family: "Playfair Display", serif !important;
+    color: white !important;
+    text-align: center !important;
+    margin: 0 !important;
+    font-style: italic !important;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8) !important;
+    font-size: 2.5vw !important;
+  }
+
+  .details {
+    width: 100%;
+    max-width: 80vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  li {
+    list-style-type: none;
+    margin: 0;
+  }
+
+  .trailer-container {
+    width: 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    iframe {
+      width: 100%;
+      height: 40vh;
+      object-fit: cover;
+      margin-top: -3vh;
+      position: relative;
+      z-index: 1;
+      border: none;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    margin-top: 3vh;
+    position: relative;
   }
 
   button {
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    border-radius: 4px;
+    font-family: "Playfair Display", serif;
+    padding: 1vh 2vw;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
   }
 
-  input,
-  textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
+  @media (max-width: 768px) {
+    .noir-movie-title {
+      font-size: 6vw !important;
+    }
+
+    iframe {
+      height: 30vh;
+      width: 100%;
+    }
+
+    .actions {
+      gap: 4vw;
+    }
+
+    button {
+      padding: 2vh 4vw;
+    }
   }
 }

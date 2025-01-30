@@ -1,59 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap");
+
 & {
-  color: #e91c50;
-  margin-top: 3rem;
-  font-size: 2rem;
+  color: white;
+  margin-top: 5vh;
+  font-size: 2vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  font-family: "Playfair Display", serif;
+
+  h2 {
+    text-align: center;
+    width: 100%;
+    font-size: 4vw;
+  }
+
+  h2::after {
+    content: "";
+    display: block;
+    width: 15vw;
+    height: 0.2rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 2vh auto 0;
+  }
 
   label {
     display: flex;
     flex-direction: column;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1vh;
+    text-align: center;
+    align-items: center;
+    width: auto;
   }
 
   .error-message {
-    border: solid 0.2rem #e91c50;
-    padding: 0.5rem;
+    border: solid 0.2rem rgba(255, 255, 255, 0.2);
+    padding: 1vh 2vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+    font-size: 2vw;
   }
 
   input,
   button {
-    height: 4rem;
-
-    font-size: 2rem;
-
-    border: 0.2rem solid #cccccc;
-    border-radius: 0.5rem;
+    height: 6vh;
+    font-size: 2vw;
+    font-family: "Playfair Display", serif;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #fff;
+    border-radius: 0;
+    color: white;
+    transition: all 0.3s ease;
+    width: 50vw;
 
     &:focus {
-      border: 0.2rem solid #e91c50;
+      border: 2px solid #fff;
       outline: none;
+      background-color: rgba(255, 255, 255, 0.3);
     }
   }
 
   input {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1vh;
+    padding: 1vh 2vw;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
   }
 
   button {
-    padding: 0.5rem 1rem;
-
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-
-    background-color: #e91c50;
-    color: #ffffff;
-
-    border: none;
+    padding: 1vh 2vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
+    position: relative;
+    bottom: 10px;
 
     &:hover,
     &:focus {
-      background-color: lighten(#e91c50, 5%);
-      text-decoration: underline;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
     }
 
     &:active {
-      background-color: darken(#e91c50, 10%);
+      background-color: rgba(255, 255, 255, 0.8);
+      transform: translateY(1px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    input,
+    button {
+      width: 70vw;
+    }
+  }
+
+  @media (max-width: 480px) {
+    input,
+    button {
+      width: 85vw;
     }
   }
 }

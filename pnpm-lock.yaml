@@ -132,6 +132,9 @@ importers:
       loader.js:
         specifier: ^4.7.0
         version: 4.7.0
+      postcss-scss:
+        specifier: ^4.0.9
+        version: 4.0.9(postcss@8.5.1)
       prettier:
         specifier: ^3.2.5
         version: 3.4.2
@@ -5041,6 +5044,12 @@ packages:
   postcss-scss@2.1.1:
     resolution: {integrity: sha512-jQmGnj0hSGLd9RscFw9LyuSVAa5Bl1/KBPqG1NQw9w8ND55nY4ZEsdlVuYJvLPpV+y0nwTV5v/4rHPzZRihQbA==}
     engines: {node: '>=6.0.0'}
+
+  postcss-scss@4.0.9:
+    resolution: {integrity: sha512-AjKOeiwAitL/MXxQW2DliT28EKukvvbEWx3LBmJIRN8KfBGZbRTxNYW0kSqi1COiTZ57nZ9NW06S6ux//N1c9A==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.4.29
 
   postcss-selector-namespace@2.0.0:
     resolution: {integrity: sha512-1Eka6f/6IL08c8gWfslUdwqmURvHYbdI57zOMHeslIuiLaK1nxvQefqAGcr9Em9T0k+4IcwhBTAtJm+6nCz2wQ==}
@@ -12650,6 +12659,10 @@ snapshots:
   postcss-scss@2.1.1:
     dependencies:
       postcss: 7.0.39
+
+  postcss-scss@4.0.9(postcss@8.5.1):
+    dependencies:
+      postcss: 8.5.1
 
   postcss-selector-namespace@2.0.0:
     dependencies:

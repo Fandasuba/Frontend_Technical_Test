@@ -3,6 +3,7 @@ import podNames from 'ember-component-css/pod-names';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+// import styles from './styles.scss';
 
 export default class MovieListItem extends Component {
   @service firebase;
@@ -13,6 +14,7 @@ export default class MovieListItem extends Component {
   @service tmdb;
   @tracked trailerUrl = null;
   styleNamespace = podNames['movie-list/movie-list-item'];
+  // styles = styles;
 
   constructor() {
     super(...arguments);
