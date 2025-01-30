@@ -26,3 +26,6 @@
 
 # firebase stuff
 /config/environment.js
+
+# movie db api key file.
+/app/services/tmdb.js
