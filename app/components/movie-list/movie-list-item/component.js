@@ -10,7 +10,26 @@ export default class MovieListItem extends Component {
   @tracked isEditing = false;
   @tracked editTitle;
   @tracked editDescription;
+  @service tmdb;
+  @tracked trailerUrl = null;
   styleNamespace = podNames['movie-list/movie-list-item'];
+
+  constructor() {
+    super(...arguments);
+    this.loadTrailer();
+  }
+  async loadTrailer() {
+    const title = this.movie.title;
+    console.log(title, 'title in component');
+    this.trailerUrl = await this.tmdb.getTrailerForMovie(title);
+    console.log(this.trailerUrl, 'Inside loadTrailer in movie item');
+  }
+  get embedUrl() {
+    if (!this.trailerUrl) return null;
+    const videoId = this.trailerUrl.split('v=')[1];
+    console.log(videoId, 'videoID');
+    return `https://www.youtube.com/embed/${videoId}`;
+  }
 
   get movie() {
     if (this.args.movie && typeof this.args.movie.data === 'function') {
