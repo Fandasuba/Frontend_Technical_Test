@@ -20,38 +20,6 @@
     z-index: 1;
   }
 
-  .noir-movie-header {
-    padding: 2vh 3vw;
-    position: relative;
-    z-index: 99;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  :global(.noir-movie-title) {
-    font-family: "Playfair Display", serif !important;
-    color: white !important;
-    text-align: center !important;
-    margin: 0 0 1vh 0 !important;
-    font-weight: 900 !important;
-    letter-spacing: 2px !important;
-    font-size: 5vw !important;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8) !important;
-  }
-
-  :global(.noir-movie-desc) {
-    font-family: "Playfair Display", serif !important;
-    color: white !important;
-    text-align: center !important;
-    margin: 0 !important;
-    font-style: italic !important;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8) !important;
-    font-size: 2.5vw !important;
-  }
-
   .details {
     width: 100%;
     max-width: 80vw;
@@ -72,23 +40,38 @@
 
   .trailer-container {
     width: 100%;
+    .movie-list-container {
+      &.fullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw; /* Use viewport width */
+        height: var(--vh, 100vh); /* Use dynamic viewport height */
+        max-width: 100vw;
+        max-height: var(--vh, 100vh);
+      }
+    }
     position: relative;
+    padding-top: 56.25%; // 16:9 aspect ratio???
     background-color: rgba(0, 0, 0, 0.5);
 
-    iframe {
+    .trailer-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 40vh;
-      object-fit: cover;
-      margin-top: -3vh;
-      position: relative;
-      z-index: 1;
+      height: 100%;
       border: none;
-      display: block;
-      margin: 0;
-      padding: 0;
     }
   }
-
+  .ytp-cued-thumbnail-overlay-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the entire thumbnail is visible */
+    background-size: contain; /* Adjust the background sizing */
+    // background-position: center; /* Center the thumbnail */
+    // background-repeat: no-repeat; /* Prevent tiling */
+  }
   .actions {
     display: flex;
     justify-content: center;
@@ -118,18 +101,120 @@
     .noir-movie-title {
       font-size: 6vw !important;
     }
-
     iframe {
       height: 30vh;
       width: 100%;
     }
-
     .actions {
       gap: 4vw;
     }
-
     button {
       padding: 2vh 4vw;
+    }
+    .trailer-container {
+      width: 100vw;
+      margin-left: -50vw;
+      left: 50%;
+      position: relative;
+    }
+  }
+
+  /* Fine-tune for specific widths */
+  /* 375px width (iPhone 12 Mini, iPhone SE) */
+  @media (max-width: 375px) {
+    .noir-movie-title {
+      font-size: 7vw !important;
+    }
+    iframe {
+      height: 28vh;
+      width: 100%;
+    }
+    .video-wrapper {
+      max-width: 100%;
+      height: auto;
+    }
+    button {
+      font-size: 3vw;
+      padding: 1.5vh 3vw;
+    }
+  }
+
+  /* 390px width (iPhone 12, 13, 14) */
+  @media (max-width: 390px) {
+    .noir-movie-title {
+      font-size: 6.5vw !important;
+    }
+    iframe {
+      height: 29vh;
+      width: 100%;
+    }
+    .video-wrapper {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  /* 414px width (iPhone 12 Pro Max, iPhone 13 Pro Max) */
+  @media (max-width: 414px) {
+    .noir-movie-title {
+      font-size: 6vw !important;
+    }
+    iframe {
+      height: 32vh;
+      width: 100%;
+    }
+    .video-wrapper {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  /* 384px width (some Android devices) */
+  @media (max-width: 384px) {
+    .noir-movie-title {
+      font-size: 7vw !important;
+    }
+    iframe {
+      height: 28vh;
+      width: 100%;
+    }
+    .video-wrapper {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  /* 412px width (Galaxy S20, Pixel 5) */
+  @media (max-width: 412px) {
+    .noir-movie-title {
+      font-size: 6.2vw !important;
+    }
+    iframe {
+      height: 31vh;
+      width: 100%;
+    }
+    .video-wrapper {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  /* 360px width (common Android devices) */
+  @media (max-width: 360px) {
+    .noir-movie-title {
+      font-size: 7.5vw !important;
+    }
+    iframe {
+      height: 25vh;
+      width: 120%;
+    }
+    .video-wrapper {
+      max-width: 100%;
+      height: auto;
+    }
+    button {
+      font-size: 3vw;
+      padding: 1.5vh 3vw;
     }
   }
 }

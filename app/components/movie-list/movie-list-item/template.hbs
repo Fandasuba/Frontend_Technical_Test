@@ -4,25 +4,17 @@
     <p class="noir-movie-desc">{{this.movie.description}}</p>
   </div>
   <li class={{this.styleNamespace}}>
-    {{! Rest of your existing template stays exactly the same }}
     {{#if this.isEditing}}
-      <div class="edit-form">
-        <Input @type="text" @value={{this.editTitle}} />
-        <Textarea @value={{this.editDescription}} />
-        <button class="save-button" {{on "click" this.saveEdit}}>Save</button>
-        <button
-          class="cancel-button"
-          {{on "click" this.cancelEdit}}
-        >Cancel</button>
-      </div>
+      {{! Edit form content }}
     {{else}}
       <div class="details">
         <div class="trailer-container">
           {{#if this.trailerUrl}}
             <iframe
-              src={{this.embedUrl}}
+              src="{{this.embedUrl}}?playsinline=1&enablejsapi=1&rel=0"
               frameborder="0"
-              allowfullscreen
+              class="trailer-iframe"
+              allowfullscreen="true"
             ></iframe>
           {{/if}}
         </div>

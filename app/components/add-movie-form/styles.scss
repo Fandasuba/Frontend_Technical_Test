@@ -29,9 +29,10 @@
     flex-direction: column;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 1vh;
+    margin-bottom: 1.5vh;
     text-align: center;
     align-items: center;
+    font-size: 1.6vw;
     width: auto;
   }
 
@@ -47,8 +48,8 @@
 
   input,
   button {
-    height: 6vh;
-    font-size: 2vw;
+    height: 6.5vh;
+    font-size: 1.8vw;
     font-family: "Playfair Display", serif;
     background-color: rgba(255, 255, 255, 0.2);
     border: 2px solid #fff;
@@ -65,7 +66,7 @@
   }
 
   input {
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     padding: 1vh 2vw;
 
     &::placeholder {
@@ -75,13 +76,12 @@
 
   button {
     padding: 1vh 2vw;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-top: 3vh;
+    margin-bottom: 7vh;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
     position: relative;
-    bottom: 10px;
 
     &:hover,
     &:focus {
@@ -100,6 +100,11 @@
     input,
     button {
       width: 70vw;
+      font-size: 2vw;
+    }
+
+    label {
+      font-size: 2.2vw;
     }
   }
 
@@ -107,6 +112,15 @@
     input,
     button {
       width: 85vw;
+      font-size: 3vw;
+    }
+
+    label {
+      font-size: 3vw;
+    }
+
+    h2 {
+      font-size: 5vw;
     }
   }
 }
